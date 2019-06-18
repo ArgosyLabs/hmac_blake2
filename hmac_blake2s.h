@@ -6,8 +6,13 @@
 */
 #ifndef HMAC_BLAKE2S_H
 #define HMAC_BLAKE2S_H
+
 #include <blake2.h>
 #include <stdint.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 typedef uint8_t hmac_blake2s_t[BLAKE2S_OUTBYTES];
 
@@ -23,5 +28,9 @@ void hmac_blake2s_final(hmac_blake2s_state *state, hmac_blake2s_t hmac);
 void hmac_blake2s(hmac_blake2s_t hmac,
     const uint8_t *key, size_t key_size,
     const uint8_t *message, size_t message_size);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif//HMAC_BLAKE2S_H
